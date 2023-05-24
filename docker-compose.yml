@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  noteapp:
+    image: gregwatt/noteapp
+    restart: always
+    environment:
+      - DBLOC=mongodb
+    ports:
+      - 3000:3000
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=noteapp
+    volumes:
+      - ./dockerdata/db:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+      - 27017:27017

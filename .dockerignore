@@ -1,0 +1,11 @@
+**/node_modules/
+**/dist
+**/build
+**/pub_html
+/dockerdata/
+.git
+npm-debug.log
+.coverage
+.coverage.*
+.env
+.aws
